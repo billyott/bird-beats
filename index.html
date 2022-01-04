@@ -7,15 +7,29 @@
 </head>
 <body>
     <h1 class="header">BIRD BEATS</h1>
-
+    
+    <audio data-key="81" src="./assets/bird1.wav"></audio>
+    <audio data-key="87" src="./assets/bird2.wav"></audio>
+    <audio data-key="69" src="./assets/bird3.wav"></audio>
+    <audio data-key="82" src="./assets/bird4.wav"></audio>
+    <audio data-key="65" src="./assets/bird5.wav"></audio>
+    <audio data-key="83" src="./assets/bird6.wav"></audio>
+    <audio data-key="68" src="./assets/bird7.wav"></audio>
+    <audio data-key="70" src="./assets/bird8.wav"></audio>
+    <audio data-key="90" src="./assets/bird9.wav"></audio>
+    <audio data-key="88" src="./assets/bird10.wav"></audio>
+    <audio data-key="67" src="./assets/bird11.wav"></audio>
+    <audio data-key="86" src="./assets/bird12.wav"></audio>
 
     <script>
-        
-        const header = document.querySelector('.header');
-        header.addEventListener('click', function(e) {
-            this.style.backgroundColor = "red";
-            return false;
-        });
+
+        function playBirdNoise(e) {
+            const birdSound = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            birdSound.currentTime = 0;
+            birdSound.play();
+        }
+
+        window.addEventListener('keydown', playBirdNoise);
 
     </script>
 
