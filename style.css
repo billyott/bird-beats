@@ -2,3 +2,14 @@
     background-color: grey;
     color: darkblue;
 }
+
+.sampler {
+    height: 500px;
+    width: 500px;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+}
+
