@@ -8,42 +8,42 @@
 <body>
     <h1 class="header">BIRD BEATS</h1>
     <div class="sampler">
-        <div class="button" data-key="Q">
+        <button class="button" data-key="Q">
             <div class="key-val">Q</div>
-        </div>
-        <div class="button" data-key="W">
+        </button>
+        <button class="button" data-key="W">
             <div class="key-val">W</div>
-        </div>
-        <div class="button" data-key="E">
+        </button>
+        <button class="button" data-key="E">
             <div class="key-val">E</div>
-        </div>
-        <div class="button" data-key="R">
+        </button>
+        <button class="button" data-key="R">
             <div class="key-val">R</div>
-        </div>
-        <div class="button" data-key="A">
+        </button>
+        <button class="button" data-key="A">
             <div class="key-val">A</div>
-        </div>
-        <div class="button" data-key="S">
+        </button>
+        <button class="button" data-key="S">
             <div class="key-val">S</div>
-        </div>
-        <div class="button" data-key="D">
+        </button>
+        <button class="button" data-key="D">
             <div class="key-val">D</div>
-        </div>
-        <div class="button" data-key="F">
+        </button>
+        <button class="button" data-key="F">
             <div class="key-val">F</div>
-        </div>
-        <div class="button" data-key="Z">
+        </button>
+        <button class="button" data-key="Z">
             <div class="key-val">Z</div>
-        </div>
-        <div class="button" data-key="X">
+        </button>
+        <button class="button" data-key="X">
             <div class="key-val">X</div>
-        </div>
-        <div class="button" data-key="C">
+        </button>
+        <button class="button" data-key="C">
             <div class="key-val">C</div>
-        </div>
-        <div class="button" data-key="V">
+        </button>
+        <button class="button" data-key="V">
             <div class="key-val">V</div>
-        </div>
+        </button>
     </div>
     <audio data-key="Q" data-keycode="81" src="./assets/bird1.wav"></audio>
     <audio data-key="W" data-keycode="87" src="./assets/bird2.wav"></audio>
@@ -61,13 +61,21 @@
     <script>
 
         function playBirdNoise(e) {
-            const birdSound = document.querySelector(`audio[data-key="" data-key="${e.keyCode}"]`);
+            let birdSound;
+            if (e.keyCode) {
+                birdSound = document.querySelector(`audio[data-keycode="${e.keyCode}"]`);
+            } else {
+                birdSound = document.querySelector(`audio[data-key="${e.target.dataset.key}"]`);
+            }
+            if (!birdSound) return;
             birdSound.currentTime = 0;
             birdSound.play();
         }
 
-
-
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => {
+            button.addEventListener('click', playBirdNoise);
+        });
         window.addEventListener('keydown', playBirdNoise);
 
     </script>
