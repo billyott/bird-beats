@@ -1,15 +1,32 @@
 .header {
-    background-color: grey;
     color: darkblue;
+    text-align: center;
 }
 
 .sampler {
-    height: 500px;
-    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    border-style: solid;
+    max-width: 800px;
 }
 
 .button {
-    height: 50px;
-    width: 50px;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 60px;
+    border-style: solid;
+    margin: 30px;
+}
+
+.key-val {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
